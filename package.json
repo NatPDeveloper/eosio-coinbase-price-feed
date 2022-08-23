@@ -1,0 +1,87 @@
+{
+  "name": "eosio-coinbase-price-feed",
+  "version": "1.0.0",
+  "description": "Example EOSIO contract for posting / authenticating signed coinbase prices",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require=dotenv/config --exit --timeout 1000000 --color",
+    "compile": "zeus compile",
+    "update": "npm uninstall -g @liquidapps/zeus-cmd; npm i -g @liquidapps/zeus-cmd",
+    "preinstall": "",
+    "test-ci": "mocha --require=dotenv/config --exit --timeout 1000000 --reporter mocha-junit-and-console-reporter --reporter-options mochaFile=./test-reports/junit.xml --color --retries 3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NatPDeveloper/eosio-coinbase-price-feed.git"
+  },
+  "keywords": [
+    "eosio",
+    "blockchain",
+    "coinbase",
+    "price",
+    "feed"
+  ],
+  "author": "NatPDeveloper",
+  "bugs": {
+    "url": "https://github.com/NatPDeveloper/eosio-coinbase-price-feed/issues"
+  },
+  "homepage": "https://github.com/NatPDeveloper/eosio-coinbase-price-feed#readme",
+  "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@liquidapps/box-utils": "^1.0.1",
+    "@noble/hashes": "^1.1.2",
+    "add-dependencies": "^1.1.0",
+    "big-integer": "^1.6.36",
+    "bitcoin-ts": "^1.15.2",
+    "bitcoinjs-lib": "^6.0.2",
+    "bytebuffer": "^5.0.1",
+    "chai": "^4.3.6",
+    "chalk": "^2.4.1",
+    "crypto": "^1.0.1",
+    "deep-extend": "^0.6.0",
+    "dotenv": "^6.1.0",
+    "elliptic": "^6.5.4",
+    "eosio-push-guarantee": "^1.3.50",
+    "eosjs": "^22.1.0",
+    "eosjs-ecc": "^4.0.7",
+    "eoslime": "^2.0.1",
+    "eth-crypto": "^2.3.0",
+    "ethereumjs-util": "^7.1.5",
+    "ethers": "^5.7.0",
+    "fcbuffer": "^2.2.2",
+    "fs": "^0.0.1-security",
+    "generator-generator": "^5.1.0",
+    "is-wsl": "^2.0.0",
+    "js-sha3": "^0.8.0",
+    "js-yaml": "^4.1.0",
+    "kill-port": "^2.0.1",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4",
+    "mocha": "^10.0.0",
+    "mocha-junit-and-console-reporter": "^1.6.0",
+    "node-emoji": "^1.8.1",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.18.5",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "prompt": "^1.0.0",
+    "readline-sync": "^1.4.10",
+    "sleep-promise": "^8.0.1",
+    "stream-buffers": "^3.0.1",
+    "temp": "^0.8.3",
+    "web3-utils": "^1.7.5",
+    "whatwg-fetch": "^2.0.4",
+    "which": "^2.0.2",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.10.0",
+    "yargs": "^12.0.2",
+    "yeoman-generator": "^2.0.5",
+    "yo": "^4.3.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "web3": "^1.7.5"
+  }
+}
