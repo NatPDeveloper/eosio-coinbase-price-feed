@@ -211,7 +211,7 @@ eosio::checksum256 keccak(const char* data, uint32_t length)
 keccak(chars,sizeof(chars))
 ```
 
-`k1_recover` takes a 65 byte signature, 65 byte digest and the key recovered will be 65 bytes. From the below you can see we take the hash of the message, convert that checksum to a hex string then hash the preamble as a hex string plus that message and pass the signature.
+`k1_recover` takes a signature, digest and the key to be recovered. From the below you can see we take the hash of the message, convert that checksum to a hex string then hash the preamble as a hex string plus that message and pass the signature.
 
 The preamble is `"\x19Ethereum Signed Message:\n32"` with the 32 representing the amount of bytes of the message's digest hash. Signatures must be 65 bytes, digests must be 32 bytes, and the returned key will always be 65 bytes
 
