@@ -97,11 +97,15 @@ cleos get table oracle oracle btc
 
 # Background
 
-Coinbase is the only exchange I'm aware of that actually signs its price data and makes it freely available by API. This costs them nothing in terms of on chain resources and allows anyone to provide that data to a blockchain where it can be validated on chain.
+Coinbase and [OkCoin](https://www.okcoin.com/docs/en/#oracle-oracle) are the only exchanges I'm aware of that actually signs its price data and makes it freely available by API. This costs them nothing in terms of on chain resources and allows anyone to provide that data to a blockchain where it can be validated on chain.
 
 Coinbase currently offers this [price API](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbasepriceoracle) for 13 tokens. BTC ETH XTZ DAI REP ZRX BAT KNC LINK COMP UNI GRT SNX. DAI (July 13), BAT (July 13), and REP (Aug 14) are not up to date. Because of this I would not recommend relying too heavily on any of those prices.
 
 Coinbase's public key is `0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC`. The uncompressed format is `044170a2083dccbc2be253885a8d0e9f7ce859eb370d0c5cae3b6994af4cb9d6663e1c135774a355e78570fc76579402a6657b58c4a1ccc73237c7244297a48cfb`. You can read more on key formats [here](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04.asciidoc#public-key-formats).
+
+Okcoin offers for BTC/ETH.
+
+Okcoin Oracle public key is `0x419c555b739212684432050b7ce459ea8e7b8bda` and uncompressed key `0425df290b8c4930adcf8cd5c883616a1204ccc3d6ba3c4a636d6bcecd08e466d339d468544d00cc0373b11156b26a6c43931fd43e3af1be45299fea3210ab7187`.
 
 I looked to [Compound's open oracle price feed](https://github.com/compound-finance/open-oracle) for help with signature formatting and assertion checks. This contract also accepts this signed price data and allows the registering of additional trusted API providers.
 
@@ -225,3 +229,9 @@ validate_signature(hash(preamble_hex + message_hash_string),signature);
 # Additional Resources
 
 There is an `/api` folder that has some proofs in it that I used to understand the js side of keccak, recover, and abi decoding that may be useful.
+
+# Wishlist features
+
+- allow registration of multiple signed data providers
+- add overflow check
+- do price data by scope versus many singletons

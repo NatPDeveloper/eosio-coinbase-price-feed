@@ -3,6 +3,11 @@ const desiredOutput = "0x4b5fcf9a2851b6df0cdc4e178aeef373fb86131b3bf7bed9531aa75
 const signature = "0xaf834758a351608e8ba3acb4ec835d9e9bb92a4e5d3586a5ad8eee7282da458941272b9ab0ae97d6a0bbec7db4e6af345b46d45d9d608dbf26d0b3929d63eab8000000000000000000000000000000000000000000000000000000000000001c"
 const address = "0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC";
 
+const data2 = "0x0000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000005f1a3b7800000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000000000000000000000000000000000023b6cf1500000000000000000000000000000000000000000000000000000000000000006707269636573000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000034254430000000000000000000000000000000000000000000000000000000000";
+const desiredOutput2 = "";
+const signature2 = "0xfac4de6c101408a1cb82578b1fa71ba9379d35f86b73e10be908c2fc35a693eb737b02eb61a44c2d12a69912b43bcdd46f91df69769d2907d89af334c73fda20000000000000000000000000000000000000000000000000000000000000001c";
+const address2 = "0x419c555b739212684432050b7ce459ea8e7b8bda";
+
 const createKeccakHash = require("keccak");
 const elliptic = require("elliptic");
 const Web3 = require('web3');
@@ -536,6 +541,8 @@ function recover(message, signature, preFixed) {
 (() => {
     const web3 = new Web3();
 
-    console.log(`self-calculated address: ${recover(sha3(data),signature,false)}`,sha3(data)==desiredOutput,recover(sha3(data),signature,false)===address);
+
+    console.log(`self-calculated coinbase address: ${recover(sha3(data),signature,false)}`,sha3(data)==desiredOutput,recover(sha3(data),signature,false)===address);
+    console.log(`self-calculated okcoin  address: ${recover(sha3(data2),signature2,false)}`,sha3(data2)==desiredOutput2,recover(sha3(data2),signature2,false)===address2);
     console.log('web3 calculated address:',web3.eth.accounts.recover(web3.utils.keccak256(data), signature, false));
 })()
